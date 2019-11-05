@@ -12,7 +12,7 @@ public class Peon {
 	private void setColor(Color color) {
 		
 		if(color == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("ERROR: No se puede asignar un color nulo.");
 		}
 		this.color = color;
 	}
@@ -20,6 +20,10 @@ public class Peon {
 		return posicion;
 	}
 	private void setPosicion(Posicion posicion) {
+		
+		if(posicion == null) {
+			throw new IllegalArgumentException("ERROR: No se puede asignar una columna nula.");
+		}
 		this.posicion = posicion;
 	}
 	

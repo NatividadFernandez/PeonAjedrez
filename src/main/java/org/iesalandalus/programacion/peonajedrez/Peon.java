@@ -12,12 +12,24 @@ public class Peon {
 		this.color = Color.NEGRO;
 	}
 
+	// Constructor con un parámetro
 	public Peon(Color color) {
 		if (color.equals(Color.BLANCO)) {
 			this.posicion = new Posicion(2, 'd');
 		} else if (color.equals(Color.NEGRO)) {
 			this.posicion = new Posicion(7, 'd');
 		}
+		this.color = color;
+	}
+	
+	// Constructor con dos parámetros
+	public Peon(Color color, Posicion posicion) {	
+				
+		if(color.equals(Color.BLANCO)) {
+			this.posicion = new Posicion(2,posicion.getColumna());
+		} else if (color.equals(Color.NEGRO)) {
+			this.posicion = new Posicion(7,posicion.getColumna());
+		}		
 		this.color = color;
 	}
 

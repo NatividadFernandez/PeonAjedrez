@@ -29,7 +29,7 @@ public class Posicion {
 		return fila;
 	}
 
-	public void setFila(int fila) {
+	private void setFila(int fila) {
 
 		if (fila >= 1 && fila <= 8) {
 			this.fila = fila;
@@ -43,7 +43,7 @@ public class Posicion {
 		return columna;
 	}
 
-	public void setColumna(char columna) {
+	private void setColumna(char columna) {
 
 		if (columna >= 'a' && columna <= 'h') {
 			this.columna = columna;

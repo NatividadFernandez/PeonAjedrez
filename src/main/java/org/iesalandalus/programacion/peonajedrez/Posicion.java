@@ -4,7 +4,15 @@ public class Posicion {
 
 	private int fila;
 	private char columna;
+	
+	//Constructor
+	public Posicion(int fila, char columna) {
+		
+		setFila(fila);
+		setColumna(columna);
+	}
 
+	//Getters y Setters
 	public int getFila() {
 		return fila;
 	}

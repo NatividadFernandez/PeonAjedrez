@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.peonajedrez;
 
+import java.util.Objects;
+
 public class Posicion {
 
 	private int fila;
@@ -49,5 +51,26 @@ public class Posicion {
 			throw new IllegalArgumentException("ERROR: Columna no válida.");
 		}
 	}
+
+	//Métodos hasCode y Equals
+	@Override
+	public int hashCode() {
+		return Objects.hash(columna, fila);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof Posicion)) {
+			return false;
+		}
+		Posicion other = (Posicion) obj;
+		return columna == other.columna && fila == other.fila;
+	}
+	
+	
+	
 
 }

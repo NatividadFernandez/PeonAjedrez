@@ -10,6 +10,10 @@ public class Peon {
 		return color;
 	}
 	private void setColor(Color color) {
+		
+		if(color == null) {
+			throw new IllegalArgumentException();
+		}
 		this.color = color;
 	}
 	public Posicion getPosicion() {

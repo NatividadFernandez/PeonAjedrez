@@ -4,15 +4,25 @@ public class Posicion {
 
 	private int fila;
 	private char columna;
-	
-	//Constructor
+
+	// Constructor
 	public Posicion(int fila, char columna) {
-		
+
 		setFila(fila);
 		setColumna(columna);
 	}
 
-	//Getters y Setters
+	// Constructor Copia
+	public Posicion(Posicion posicion) {
+		if(posicion == null) {
+			throw new IllegalArgumentException("ERROR: No es posible copiar una posición nula.");
+		} else {
+			this.fila = posicion.getFila();
+			this.columna = posicion.getColumna();
+		}
+	}
+
+	// Getters y Setters
 	public int getFila() {
 		return fila;
 	}

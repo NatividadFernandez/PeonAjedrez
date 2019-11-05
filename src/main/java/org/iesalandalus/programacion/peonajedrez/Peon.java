@@ -14,6 +14,8 @@ public class Peon {
 
 	// Constructor con un parámetro
 	public Peon(Color color) {
+		setColor(color);
+
 		if (color.equals(Color.BLANCO)) {
 			this.posicion = new Posicion(2, 'd');
 		} else if (color.equals(Color.NEGRO)) {
@@ -21,15 +23,17 @@ public class Peon {
 		}
 		this.color = color;
 	}
-	
+
 	// Constructor con dos parámetros
-	public Peon(Color color, Posicion posicion) {	
-				
-		if(color.equals(Color.BLANCO)) {
-			this.posicion = new Posicion(2,posicion.getColumna());
+	public Peon(Color color, char columna) {
+		
+		setColor(color);
+		
+		if (color.equals(Color.BLANCO)) {
+			this.posicion = new Posicion(2, columna);
 		} else if (color.equals(Color.NEGRO)) {
-			this.posicion = new Posicion(7,posicion.getColumna());
-		}		
+			this.posicion = new Posicion(7, columna);
+		}
 		this.color = color;
 	}
 
@@ -41,9 +45,11 @@ public class Peon {
 	private void setColor(Color color) {
 
 		if (color == null) {
-			throw new IllegalArgumentException("ERROR: No se puede asignar un color nulo.");
+			throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
+		} else {
+			this.color = color;
 		}
-		this.color = color;
+
 	}
 
 	public Posicion getPosicion() {
@@ -51,10 +57,6 @@ public class Peon {
 	}
 
 	private void setPosicion(Posicion posicion) {
-
-		if (posicion == null) {
-			throw new IllegalArgumentException("ERROR: No se puede asignar una columna nula.");
-		}
 		this.posicion = posicion;
 	}
 

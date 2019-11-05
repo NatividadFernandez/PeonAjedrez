@@ -1,5 +1,5 @@
 package org.iesalandalus.programacion.peonajedrez;
-/*
+
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
@@ -137,7 +137,7 @@ public class PeonTest {
 		}
 	}
 	
-	@Test
+/*	@Test
 	public void mover1PasoCambiaPosicionCorrectamente() {
 		Peon peonBlanco = new Peon(Color.BLANCO);
 		Peon peonNegro = new Peon(Color.NEGRO);
@@ -325,6 +325,6 @@ public class PeonTest {
 	public void toStringTest() {
 		Peon peon = new Peon();
 		assertThat(CADENA_NO_ESPERADA, peon.toString(), is("fila=7, columna=d, color=NEGRO"));
-	}
+	}*/
 
-}*/
+}

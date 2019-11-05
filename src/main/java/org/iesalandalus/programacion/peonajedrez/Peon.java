@@ -2,13 +2,21 @@ package org.iesalandalus.programacion.peonajedrez;
 
 public class Peon {
 	
-	private Color color;
-	private Posicion posicion;
+	Color color;
+	Posicion posicion;
+	
+	//Constructor por defecto
+	public Peon() {
+		
+		this.posicion = new Posicion(7,'d');
+		this.color = Color.NEGRO;
+	}
 	
 	// Getters y Setters
 	public Color getColor() {
 		return color;
 	}
+	
 	private void setColor(Color color) {
 		
 		if(color == null) {

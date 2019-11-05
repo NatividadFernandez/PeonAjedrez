@@ -1,5 +1,5 @@
 package org.iesalandalus.programacion.peonajedrez;
-/*
+
 import static org.junit.Assert.*;
 
 import org.iesalandalus.programacion.peonajedrez.Posicion;
@@ -94,4 +94,4 @@ public class PosicionTest {
 		assertThat(CADENA_NO_ESPERADA, posicion.toString(), is("fila=1, columna=a"));
 	}
 
-}*/
+}

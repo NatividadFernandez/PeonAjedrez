@@ -251,7 +251,7 @@ public class PeonTest {
 			assertThat(EXCEPCION_MOVIMIENTO_NO_VALIDO, e.getMessage(), is(ERROR_NUMERO_PASOS));
 			assertThat(POSICION_NO_ESPERADA, peonNegro.getPosicion(), is(new Posicion(7, 'd')));
 		}
-	}
+	}*/
 		
 	@Test
 	public void moverDireccionValidaCambiaPosicionCorrectamente() {
@@ -320,7 +320,7 @@ public class PeonTest {
 			assertThat(POSICION_NO_ESPERADA, peonBlancoH.getPosicion(), is(new Posicion(2, 'h')));
 		}
 	}
-	
+	/*
 	@Test
 	public void toStringTest() {
 		Peon peon = new Peon();

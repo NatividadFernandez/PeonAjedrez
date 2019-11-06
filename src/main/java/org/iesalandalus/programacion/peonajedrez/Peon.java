@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.peonajedrez;
 
+import javax.naming.OperationNotSupportedException;
+
 public class Peon {
 
 	private Color color;
@@ -26,9 +28,9 @@ public class Peon {
 
 	// Constructor con dos parámetros
 	public Peon(Color color, char columna) {
-		
+
 		setColor(color);
-		
+
 		if (color.equals(Color.BLANCO)) {
 			this.posicion = new Posicion(2, columna);
 		} else if (color.equals(Color.NEGRO)) {
@@ -46,9 +48,8 @@ public class Peon {
 
 		if (color == null) {
 			throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
-		} else {
-			this.color = color;
 		}
+		this.color = color;
 
 	}
 
@@ -57,7 +58,49 @@ public class Peon {
 	}
 
 	private void setPosicion(Posicion posicion) {
+
+		if (posicion == null) {
+			throw new NullPointerException("ERROR: Mover el peón en una dirección nula no está permitido.");
+		}
 		this.posicion = posicion;
+	}
+
+	public void mover(Direccion direccion) throws OperationNotSupportedException {
+
+		if (direccion == null) {
+			throw new NullPointerException("ERROR: Mover el peón en una dirección nula no está permitido.");
+		}
+		
+		switch (direccion) {
+
+		case IZQUIERDA:
+			try {
+				if (color.equals(Color.BLANCO)) {
+					posicion = new Posicion(posicion.getFila() + 1, (char) (posicion.getColumna() - 1));
+				} else if (color.equals(Color.NEGRO)) {
+					posicion = new Posicion(posicion.getFila() - 1, (char) (posicion.getColumna() - 1));
+				}
+
+			} catch (IllegalArgumentException iae) {
+				throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+			}
+			break;
+		case DERECHA:
+			try {
+
+				if (color.equals(Color.BLANCO)) {
+					posicion = new Posicion(posicion.getFila() + 1, (char) (posicion.getColumna() + 1));
+				} else if (color.equals(Color.NEGRO)) {
+					posicion = new Posicion(posicion.getFila() - 1, (char) (posicion.getColumna() + 1));
+				}
+
+			} catch (IllegalArgumentException iae) {
+				throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+			}
+			break;
+
+		}
+
 	}
 
 }

@@ -65,6 +65,7 @@ public class Peon {
 		this.posicion = posicion;
 	}
 
+	// Método mover usando la dirección
 	public void mover(Direccion direccion) throws OperationNotSupportedException {
 
 		if (direccion == null) {
@@ -104,10 +105,13 @@ public class Peon {
 
 	}
 
+	// Método mover sobrecargado
 	public void mover(int num) throws OperationNotSupportedException {
 
 		try {
-			if (num == 2) {
+			switch (num) {
+			
+			case 2:
 				if (color.equals(Color.BLANCO)) {
 					if (posicion.getFila() == 2) {
 						posicion = new Posicion(posicion.getFila() + 2, (char) (posicion.getColumna()));
@@ -123,8 +127,8 @@ public class Peon {
 								"ERROR: El peón sólo se puede mover 2 pasos cuando se encuentra en la casilla inicial.");
 					}
 				}
-
-			} else if (num == 1) {
+				break;
+			case 1:
 
 				if (color.equals(Color.BLANCO)) {
 					posicion = new Posicion(posicion.getFila() + 1, (char) (posicion.getColumna()));
@@ -133,7 +137,8 @@ public class Peon {
 					posicion = new Posicion(posicion.getFila() - 1, (char) (posicion.getColumna()));
 
 				}
-			} else {
+				break;
+			default:
 				throw new OperationNotSupportedException("ERROR: El peón sólo se puede mover 1 o 2 pasos.");
 			}
 		} catch (IllegalArgumentException iae) {

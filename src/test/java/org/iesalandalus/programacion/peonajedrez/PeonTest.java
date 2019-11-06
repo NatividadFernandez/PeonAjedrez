@@ -320,11 +320,11 @@ public class PeonTest {
 			assertThat(POSICION_NO_ESPERADA, peonBlancoH.getPosicion(), is(new Posicion(2, 'h')));
 		}
 	}
-	/*
+	
 	@Test
 	public void toStringTest() {
 		Peon peon = new Peon();
 		assertThat(CADENA_NO_ESPERADA, peon.toString(), is("fila=7, columna=d, color=NEGRO"));
-	}*/
+	}
 
 }

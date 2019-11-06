@@ -148,7 +148,7 @@ public class Peon {
 		}
 	}
 
-	// Método hasCode y equals
+	// Métodos hasCode y equals
 	@Override
 	public int hashCode() {
 		return Objects.hash(color, posicion);
@@ -166,5 +166,13 @@ public class Peon {
 		return color == other.color && Objects.equals(posicion, other.posicion);
 	}
 
+	//Método toString
+	@Override
+	public String toString() {
+		return posicion + ", color=" + color;
+	}
+	
+	
+	
 	
 }

@@ -70,7 +70,7 @@ public class Peon {
 		if (direccion == null) {
 			throw new NullPointerException("ERROR: Mover el peón en una dirección nula no está permitido.");
 		}
-		
+
 		switch (direccion) {
 
 		case IZQUIERDA:
@@ -85,6 +85,7 @@ public class Peon {
 				throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
 			}
 			break;
+
 		case DERECHA:
 			try {
 
@@ -101,6 +102,43 @@ public class Peon {
 
 		}
 
+	}
+
+	public void mover(int num) throws OperationNotSupportedException {
+
+		try {
+			if (num == 2) {
+				if (color.equals(Color.BLANCO)) {
+					if (posicion.getFila() == 2) {
+						posicion = new Posicion(posicion.getFila() + 2, (char) (posicion.getColumna()));
+					} else {
+						throw new OperationNotSupportedException(
+								"ERROR: El peón sólo se puede mover 2 pasos cuando se encuentra en la casilla inicial.");
+					}
+				} else if (color.equals(Color.NEGRO)) {
+					if (posicion.getFila() == 7) {
+						posicion = new Posicion(posicion.getFila() - 2, (char) (posicion.getColumna()));
+					} else {
+						throw new OperationNotSupportedException(
+								"ERROR: El peón sólo se puede mover 2 pasos cuando se encuentra en la casilla inicial.");
+					}
+				}
+
+			} else if (num == 1) {
+
+				if (color.equals(Color.BLANCO)) {
+					posicion = new Posicion(posicion.getFila() + 1, (char) (posicion.getColumna()));
+
+				} else if (color.equals(Color.NEGRO)) {
+					posicion = new Posicion(posicion.getFila() - 1, (char) (posicion.getColumna()));
+
+				}
+			} else {
+				throw new OperationNotSupportedException("ERROR: El peón sólo se puede mover 1 o 2 pasos.");
+			}
+		} catch (IllegalArgumentException iae) {
+			throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+		}
 	}
 
 }

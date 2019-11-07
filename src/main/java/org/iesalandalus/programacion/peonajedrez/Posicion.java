@@ -16,7 +16,7 @@ public class Posicion {
 
 	// Constructor Copia
 	public Posicion(Posicion posicion) {
-		if(posicion == null) {
+		if (posicion == null) {
 			throw new NullPointerException("ERROR: No es posible copiar una posición nula.");
 		} else {
 			this.fila = posicion.getFila();
@@ -52,7 +52,7 @@ public class Posicion {
 		}
 	}
 
-	//Métodos hasCode y Equals
+	// Métodos hasCode y Equals
 	@Override
 	public int hashCode() {
 		return Objects.hash(columna, fila);
@@ -70,13 +70,10 @@ public class Posicion {
 		return columna == other.columna && fila == other.fila;
 	}
 
+	// Método toString
 	@Override
 	public String toString() {
 		return "fila=" + fila + ", columna=" + columna;
 	}
-	
-	
-	
-	
 
 }

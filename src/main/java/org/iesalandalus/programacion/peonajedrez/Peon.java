@@ -102,7 +102,10 @@ public class Peon {
 				throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
 			}
 			break;
-
+			
+		default:
+			System.out.println("Error de direccion");
+			break;
 		}
 
 	}

@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.peonajedrez;
 
+import javax.naming.OperationNotSupportedException;
+
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class MainApp {
@@ -139,5 +141,31 @@ public class MainApp {
 		} while (opcion > 1 || opcion < 4);
 
 		return opcion;
+	}
+	
+	public static void realizarMovimiento(int opcion) throws OperationNotSupportedException {
+		
+		Direccion direccion = null;
+		
+		switch (opcion) {
+		
+		case 1:
+			peon.mover(1);
+			break;
+		case 2:
+			peon.mover(2);
+			break;
+		case 3:
+			direccion = Direccion.IZQUIERDA;
+			break;
+		case 4:
+			direccion = Direccion.DERECHA;
+			break;
+		default:
+			System.out.println("Opción no válida");
+			break;
+		
+		}
+		
 	}
 }

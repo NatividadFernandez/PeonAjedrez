@@ -53,7 +53,8 @@ public class MainApp {
 		Color color = null;
 
 		do {
-			System.out.println("Menú colores peón");
+			System.out.println(" ");
+			System.out.println("** MENÚ COLOR PEÓN **");
 			System.out.println("1.-Blanco" + "\n2.-Negro");
 			System.out.println(" ");
 			System.out.println("Elige uno de los colores:");
@@ -84,10 +85,12 @@ public class MainApp {
 		char columna = ' ';
 
 		do {
-			System.out.println("Menú columnas iniciales");
+			System.out.println(" ");
+			System.out.println("** MENÚ COLUMNAS INICIALES **");
 			System.out.println(
 					"1.- A" + "\n2.- B" + "\n3.- C" + "\n4.- D" + "\n5.- E" + "\n6.- F" + "\n7.- G" + "\n8.- H");
 			System.out.println(" ");
+			System.out.println("Recuerda que tienes que poner el número que corresponde a la letra.");
 			System.out.println("Elige una columna para iniciar:");
 			opcion = Entrada.entero();
 
@@ -130,8 +133,8 @@ public class MainApp {
 	}
 
 	public static void mostrarMenuMovimientos() {
-
-		System.out.println("Menú movimientos");
+		System.out.println(" ");
+		System.out.println("** MENÚ MOVIMIENTOS **");
 		System.out.println("1.- Avanzar peón un paso." + "\n2.- Avanzar peón dos pasos."
 				+ "\n3.- Avanzar peón hacia la izquierda." + "\n4.- Avanzar peón hacia la derecha.");
 	}
@@ -156,9 +159,11 @@ public class MainApp {
 		switch (opcion) {
 
 		case 1:
+			System.out.println("** Mover el peón 1 paso **");
 			peon.mover(1);
 			break;
 		case 2:
+			System.out.println("** Mover el peón 2 pasos **");
 			try {
 				peon.mover(2);
 			} catch (OperationNotSupportedException o) {
@@ -167,10 +172,12 @@ public class MainApp {
 			}
 			break;
 		case 3:
+			System.out.println("** Mover el peón hacia la izquierda **");
 			direccion = Direccion.IZQUIERDA;
 			peon.mover(direccion);
 			break;
 		case 4:
+			System.out.println("** Mover el peón hacia la derecha **");
 			direccion = Direccion.DERECHA;
 			peon.mover(direccion);
 			break;

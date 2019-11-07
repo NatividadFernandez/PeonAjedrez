@@ -8,7 +8,7 @@ public class MainApp {
 
 	public static void main(String[] args) {
 
-		elegirColumnaInicial();
+		mostrarMenuMovimientos();
 	}
 
 	public static void mostrarPeon() {
@@ -38,8 +38,8 @@ public class MainApp {
 
 	public static Color elegirColor() {
 
-		Color color = null;
 		int opcion = 0;
+		Color color = null;
 
 		do {
 			System.out.println("Menú colores peón");
@@ -116,5 +116,14 @@ public class MainApp {
 		} while (opcion < 1 || opcion > 8);
 
 		return columna;
+	}
+	
+	public static void mostrarMenuMovimientos() {
+		
+		System.out.println("Menú movimientos");
+		System.out.println("1.- Avanzar peón un paso."
+				+ "\n2.- Avanzar peón dos pasos."
+				+ "\n3.- Avanzar peón hacia la izquierda."
+				+ "\n4.- Avanzar peón hacia la derecha.");
 	}
 }

@@ -176,4 +176,8 @@ public class MainApp {
 	public static void crearPeonColor() {
 		peon = new Peon(elegirColor());
 	}
+	
+	public static void crearPeonColorColumna() {
+		peon = new Peon(elegirColor(),elegirColumnaInicial());
+	}
 }

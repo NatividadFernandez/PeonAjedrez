@@ -9,32 +9,40 @@ public class MainApp {
 	static Peon peon;
 
 	public static void main(String[] args) {
+		boolean opcion = true;
+		do {
 
-		crearPeonDefecto();
-		mover();
+			mostrarMenu();
+			ejecutarOpcion(elegirOpcion());
+
+		} while (opcion == true);
 	}
 
 	public static void mostrarPeon() {
+		try {
 
-		System.out.println(peon.toString());
+			System.out.println(peon.toString());
+		} catch (NullPointerException n) {
+
+		}
 
 	}
 
 	public static void mostrarMenu() {
 
-		System.out.println("1.- Crear peón por defecto." + "\n2.- Crear peón de un color."
+		System.out.println(" ");
+		System.out.println("** MENÚ PRINCIPAL **" + "\n1.- Crear peón por defecto." + "\n2.- Crear peón de un color."
 				+ "\n3.- Crear peón de un color y en una columna inicial " + "\n4.- Mover el peón" + "\n5.- Salir");
 	}
 
 	public static int elegirOpcion() {
 		int opcion = 0;
 		do {
-			mostrarMenu();
 			System.out.println(" ");
 			System.out.println("Elige una de las opciones del menú");
 			opcion = Entrada.entero();
 
-		} while (opcion > 1 || opcion < 5);
+		} while (opcion < 1 || opcion > 5);
 
 		return opcion;
 	}
@@ -134,7 +142,7 @@ public class MainApp {
 		do {
 			System.out.println(" ");
 			System.out.println("Elige una de las opciones del menú");
-			opcion = Entrada.entero();			
+			opcion = Entrada.entero();
 
 		} while (opcion < 1 || opcion > 4);
 
@@ -151,7 +159,12 @@ public class MainApp {
 			peon.mover(1);
 			break;
 		case 2:
-			peon.mover(2);
+			try {
+				peon.mover(2);
+			} catch (OperationNotSupportedException o) {
+				System.out.println(
+						"ERROR: El peón sólo se puede mover 2 pasos cuando se encuentra en la casilla inicial.");
+			}
 			break;
 		case 3:
 			direccion = Direccion.IZQUIERDA;
@@ -163,6 +176,7 @@ public class MainApp {
 			break;
 		default:
 			System.out.println("Opción no válida");
+			System.out.println(" ");
 			break;
 
 		}
@@ -182,17 +196,56 @@ public class MainApp {
 	}
 
 	public static void mover() {
+
 		if (peon == null) {
+
 			System.out.println("Debes crear antes un peón.");
 		} else {
+
 			mostrarMenuMovimientos();
 			try {
-				realizarMovimiento(elegirMovimiento());	
-				System.out.println(" ");
-				mostrarPeon();
+				realizarMovimiento(elegirMovimiento());
 			} catch (OperationNotSupportedException e) {
-				System.out.println("Operacion no soportada");
+				System.out.println("Imposible mover el peón porque te sales del tablero");
 			}
 		}
+
+	}
+
+	public static void ejecutarOpcion(int opcion) {
+
+		switch (opcion) {
+
+		case 1:
+			System.out.println("** Crear peón por defecto **");
+			crearPeonDefecto();
+			mostrarPeon();
+			break;
+		case 2:
+			System.out.println("** Crear peón de un color **");
+			crearPeonColor();
+			mostrarPeon();
+			break;
+		case 3:
+			System.out.println("** Crear peón de un color y en una columna inicial **");
+			crearPeonColorColumna();
+			mostrarPeon();
+			break;
+		case 4:
+			System.out.println("** Mover el peón **");
+			mover();
+			mostrarPeon();
+			break;
+		case 5:
+			System.out.println("** Salir **");
+			System.out.println("¡¡¡¡ADIOS!!!!");
+			System.exit(0);
+			break;
+		default:
+			System.out.println("Opción no válida");
+			System.out.println(" ");
+			break;
+		}
+
 	}
 }

@@ -1,12 +1,19 @@
 package org.iesalandalus.programacion.peonajedrez;
 
 public class MainApp {
-	
+
+	static Peon peon;
+
 	public static void main(String[] args) {
-		System.out.println("Programa para aprender a colocar y mover un peón en el tablero de ajedrez");
-		System.out.println("-------------------------------------------------------------------------");
 		
-		System.out.println("Hasta luego Lucas!!!!");
+		
+
 	}
+
+	public static void mostrarPeon() {
+
+		System.out.println(peon);
+	}
+	
 	
 }

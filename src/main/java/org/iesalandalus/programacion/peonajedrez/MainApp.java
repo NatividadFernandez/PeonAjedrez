@@ -67,5 +67,54 @@ public class MainApp {
 		return color;
 	}
 
-	
+	public static char elegirColumnaInicial() {
+
+		int opcion = 0;
+		char columna = ' ';
+
+		do {
+			System.out.println("Menú columnas iniciales");
+			System.out.println(
+					"1.- A" + "\n2.- B" + "\n3.- C" + "\n4.- D" + "\n5.- E" + "\n6.- F" + "\n7.- G" + "\n8.- H");
+			System.out.println(" ");
+			System.out.println("Elige una columna para iniciar:");
+			opcion = Entrada.entero();
+
+			switch (opcion) {
+
+			case 1:
+				columna = 'a';
+				break;
+			case 2:
+				columna = 'b';
+				break;
+			case 3:
+				columna = 'c';
+				break;
+			case 4:
+				columna = 'd';
+				break;
+			case 5:
+				columna = 'e';
+				break;
+			case 6:
+				columna = 'f';
+				break;
+			case 7:
+				columna = 'g';
+				break;
+			case 8:
+				columna = 'h';
+				break;
+
+			default:
+				System.out.println("Opción no válida");
+				System.out.println(" ");
+				break;
+			}
+
+		} while (opcion < 1 || opcion > 8);
+
+		return columna;
+	}
 }

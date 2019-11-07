@@ -8,7 +8,7 @@ public class MainApp {
 
 	public static void main(String[] args) {
 
-		mostrarMenuMovimientos();
+		elegirMovimiento();
 	}
 
 	public static void mostrarPeon() {
@@ -125,5 +125,19 @@ public class MainApp {
 				+ "\n2.- Avanzar peón dos pasos."
 				+ "\n3.- Avanzar peón hacia la izquierda."
 				+ "\n4.- Avanzar peón hacia la derecha.");
+	}
+	
+	public static int elegirMovimiento() {
+		
+		int opcion = 0;
+		do {
+			mostrarMenuMovimientos();
+			System.out.println(" ");
+			System.out.println("Elige una de las opciones del menú");
+			opcion = Entrada.entero();
+
+		} while (opcion > 1 || opcion < 4);
+
+		return opcion;
 	}
 }

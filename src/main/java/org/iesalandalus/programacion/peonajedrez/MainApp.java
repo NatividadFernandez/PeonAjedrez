@@ -168,4 +168,8 @@ public class MainApp {
 		}
 		
 	}
+	
+	public static void crearPeonDefecto() {
+		peon = new Peon();
+	}
 }

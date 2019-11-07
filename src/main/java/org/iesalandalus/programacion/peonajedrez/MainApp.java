@@ -172,4 +172,8 @@ public class MainApp {
 	public static void crearPeonDefecto() {
 		peon = new Peon();
 	}
+	
+	public static void crearPeonColor() {
+		peon = new Peon(elegirColor());
+	}
 }

@@ -10,12 +10,13 @@ public class MainApp {
 
 	public static void main(String[] args) {
 
-		elegirMovimiento();
+		crearPeonDefecto();
+		mover();
 	}
 
 	public static void mostrarPeon() {
 
-		System.out.println(peon);
+		System.out.println(peon.toString());
 
 	}
 
@@ -119,36 +120,33 @@ public class MainApp {
 
 		return columna;
 	}
-	
+
 	public static void mostrarMenuMovimientos() {
-		
+
 		System.out.println("Menú movimientos");
-		System.out.println("1.- Avanzar peón un paso."
-				+ "\n2.- Avanzar peón dos pasos."
-				+ "\n3.- Avanzar peón hacia la izquierda."
-				+ "\n4.- Avanzar peón hacia la derecha.");
+		System.out.println("1.- Avanzar peón un paso." + "\n2.- Avanzar peón dos pasos."
+				+ "\n3.- Avanzar peón hacia la izquierda." + "\n4.- Avanzar peón hacia la derecha.");
 	}
-	
+
 	public static int elegirMovimiento() {
-		
+
 		int opcion = 0;
 		do {
-			mostrarMenuMovimientos();
 			System.out.println(" ");
 			System.out.println("Elige una de las opciones del menú");
-			opcion = Entrada.entero();
+			opcion = Entrada.entero();			
 
-		} while (opcion > 1 || opcion < 4);
+		} while (opcion < 1 || opcion > 4);
 
 		return opcion;
 	}
-	
+
 	public static void realizarMovimiento(int opcion) throws OperationNotSupportedException {
-		
+
 		Direccion direccion = null;
-		
+
 		switch (opcion) {
-		
+
 		case 1:
 			peon.mover(1);
 			break;
@@ -157,27 +155,44 @@ public class MainApp {
 			break;
 		case 3:
 			direccion = Direccion.IZQUIERDA;
+			peon.mover(direccion);
 			break;
 		case 4:
 			direccion = Direccion.DERECHA;
+			peon.mover(direccion);
 			break;
 		default:
 			System.out.println("Opción no válida");
 			break;
-		
+
 		}
-		
+
 	}
-	
+
 	public static void crearPeonDefecto() {
 		peon = new Peon();
 	}
-	
+
 	public static void crearPeonColor() {
 		peon = new Peon(elegirColor());
 	}
-	
+
 	public static void crearPeonColorColumna() {
-		peon = new Peon(elegirColor(),elegirColumnaInicial());
+		peon = new Peon(elegirColor(), elegirColumnaInicial());
+	}
+
+	public static void mover() {
+		if (peon == null) {
+			System.out.println("Debes crear antes un peón.");
+		} else {
+			mostrarMenuMovimientos();
+			try {
+				realizarMovimiento(elegirMovimiento());	
+				System.out.println(" ");
+				mostrarPeon();
+			} catch (OperationNotSupportedException e) {
+				System.out.println("Operacion no soportada");
+			}
+		}
 	}
 }

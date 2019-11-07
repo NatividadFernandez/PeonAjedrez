@@ -163,7 +163,7 @@ public class MainApp {
 				peon.mover(2);
 			} catch (OperationNotSupportedException o) {
 				System.out.println(
-						"ERROR: El peón sólo se puede mover 2 pasos cuando se encuentra en la casilla inicial.");
+						"El paso no es correcto: El peón sólo se puede mover 2 pasos cuando se encuentra en la casilla inicial.");
 			}
 			break;
 		case 3:
@@ -206,7 +206,7 @@ public class MainApp {
 			try {
 				realizarMovimiento(elegirMovimiento());
 			} catch (OperationNotSupportedException e) {
-				System.out.println("Imposible mover el peón porque te sales del tablero");
+				System.out.println("Imposible mover el peón porque sales del tablero");
 			}
 		}
 
